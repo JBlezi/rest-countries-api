@@ -3,6 +3,7 @@ import axios from 'axios';
 import Country from './Country';
 import { FaSearch } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 const HomePage = () => {
@@ -76,14 +77,15 @@ const HomePage = () => {
       </div>
 
       {filteredCountries.map(country => (
-        <Country
-          key={country.cca3}
-          flag={country.flags.png}
-          name={country.name.common}
-          population={country.population.toLocaleString()}
-          region={country.region}
-          capital={country.capital && country.capital[0]}
-        />
+        <Link to={`/country/${country.name.common}`} key={country.cca3}>
+          <Country
+            flag={country.flags.png}
+            name={country.name.common}
+            population={country.population.toLocaleString()}
+            region={country.region}
+            capital={country.capital && country.capital[0]}
+          />
+        </Link>
       ))}
     </div>
   );

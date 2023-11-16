@@ -13,9 +13,9 @@ const Country = (props) => {
       <div className='p-4'>
         <h2 className='text-2xl font-bold'>{name}</h2>
         <div className='my-4'>
-          <p>Population: {population}</p>
-          <p>Region: {region}</p>
-          <p>Capital: {capital}</p>
+          <p><span className='font-semibold'>Population:</span> {population}</p>
+          <p><span className='font-semibold'>Region:</span> {region}</p>
+          <p><span className='font-semibold'>Capital:</span> {capital}</p>
         </div>
       </div>
     </div>
