@@ -1,17 +1,21 @@
 import React from 'react';
-import flag from './images/flag_of_Germany.webp'
 
-const Country = () => {
+const Country = (props) => {
+  const flag = props.flag;
+  const name = props.name;
+  const population = props.population;
+  const region = props.region;
+  const capital = props.capital;
 
   return (
-    <div className="mx-8 md:mx-16 rounded-lg border border-black bg-white">
-      <img src={flag} alt="" />
+    <div className="mx-8 md:mx-16 my-12 rounded-md bg-white shadow">
+      <img src={flag} alt="" className='rounded-t-md'/>
       <div className='p-4'>
-        <h2 className='text-2xl font-bold'>Germany</h2>
+        <h2 className='text-2xl font-bold'>{name}</h2>
         <div className='my-4'>
-          <p>Population: 80 Million</p>
-          <p>Region: Europe</p>
-          <p>Capital: Berlin</p>
+          <p>Population: {population}</p>
+          <p>Region: {region}</p>
+          <p>Capital: {capital}</p>
         </div>
       </div>
     </div>
