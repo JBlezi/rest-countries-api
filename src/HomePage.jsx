@@ -77,7 +77,7 @@ const HomePage = () => {
       </div>
 
       {filteredCountries.map(country => (
-        <Link to={`/country/${country.name.common}`} key={country.cca3}>
+        <Link to={`/country/${country.name.common}`} state={{ country }} key={country.cca3}>
           <Country
             flag={country.flags.png}
             name={country.name.common}

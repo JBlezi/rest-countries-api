@@ -1,14 +1,15 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const CountryDetail = () => {
-  const { countryName } = useParams();
+  const location = useLocation();
+  const country = location.state.country;
 
   // Fetch country data based on countryName or pass it via state in Link
 
   return (
     <div>
-      <h1>Country Detail for {countryName}</h1>
+      <h1>Country Detail for {country.name.common}</h1>
       {/* Display detailed information about the country */}
     </div>
   );
