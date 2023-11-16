@@ -25,7 +25,7 @@ const HomePage = () => {
 
 
   return (
-    <div className="mx-8 md:mx-16">
+    <div className="mx-8 md:mx-16 my-16">
 
       <Country></Country>
 {/*       {JSON.stringify(data)} */}
