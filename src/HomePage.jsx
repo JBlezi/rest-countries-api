@@ -8,7 +8,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+/*   useEffect(() => {
     axios.get('https://restcountries.com/v3.1/independent?status=true')
       .then(response => {
         setData(response.data);
@@ -18,17 +18,17 @@ const HomePage = () => {
         setError(error);
         setLoading(false);
       });
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); // Empty dependency array means this effect runs once on mount */
 
-  if (loading) return 'Loading...';
-  if (error) return `Error: ${error.message}`;
+/*   if (loading) return 'Loading...';
+  if (error) return `Error: ${error.message}`; */
 
 
   return (
     <div className="mx-8 md:mx-16">
-      
+
       <Country></Country>
-      {JSON.stringify(data)}
+{/*       {JSON.stringify(data)} */}
     </div>
   );
 };
