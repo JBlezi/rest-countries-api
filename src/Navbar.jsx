@@ -20,7 +20,7 @@ const Navbar = () => {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    <div className="h-24 p-8 bg-white dark:bg-gray-800 flex justify-between items-center shadow">
+    <div className="h-24 p-8 bg-white dark:bg-gray-800 flex justify-between items-center shadow dark:bg-dark-blue dark:text-white">
       <h1 className='font-bold text-gray-900 dark:text-gray-100'>Where in the world?</h1>
       <div className='flex items-center space-x-2 cursor-pointer' onClick={toggleDarkMode}>
         {darkMode ? (

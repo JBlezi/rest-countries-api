@@ -38,55 +38,60 @@ const HomePage = () => {
   const regions = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   return (
-    <div className="mx-8 md:mx-16 my-12">
-      <div className='relative'>
-        <input
-          type="text"
-          placeholder="         Search for a country..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onFocus={() => setIsInputFocused(true)}
-          onBlur={() => setIsInputFocused(false)}
-          className="p-2 shadow rounded-md w-full h-16"
-        />
-        {!isInputFocused && (
-          <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-300 opacity-20" />
-        )}
-      </div>
-
-      <div className="relative w-1/2">
-        <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="py-2 px-4 shadow rounded-md my-4 h-16 bg-white text-left w-full">
-          {selectedRegion}
-        <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-300 opacity-50">
-          <FaChevronDown></FaChevronDown>
-        </div>
-        </button>
-        {isDropdownOpen && (
-          <ul className="absolute z-10 w-full bg-white p-4 shadow">
-            {regions.map(region => (
-              <li
-                key={region}
-                onClick={() => { setSelectedRegion(region); setIsDropdownOpen(false); }}
-                className="p-2 hover:bg-gray-100 cursor-pointer"
-              >
-                {region}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {filteredCountries.map(country => (
-        <Link to={`/country/${country.name.common}`} state={{ country }} key={country.cca3}>
-          <Country
-            flag={country.flags.png}
-            name={country.name.common}
-            population={country.population.toLocaleString()}
-            region={country.region}
-            capital={country.capital && country.capital[0]}
+    <div className="mx-8 md:mx-16 my-12 dark:text-white">
+      <div className='md:flex md:justify-between items-center'>
+        <div className='relative md:w-full md:mr-16 '>
+          <input
+            type="text"
+            placeholder="         Search for a country..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={() => setIsInputFocused(true)}
+            onBlur={() => setIsInputFocused(false)}
+            className="p-2 shadow rounded-md w-full h-16 dark:bg-dark-blue"
           />
-        </Link>
-      ))}
+          {!isInputFocused && (
+            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-300 opacity-20" />
+          )}
+        </div>
+
+        <div className="relative w-1/2">
+          <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="py-2 px-4 shadow rounded-md my-4 h-16 bg-white text-left w-full dark:bg-dark-blue">
+            {selectedRegion}
+          <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-300 opacity-50">
+            <FaChevronDown></FaChevronDown>
+          </div>
+          </button>
+          {isDropdownOpen && (
+            <ul className="absolute z-10 w-full bg-white p-4 shadow dark:bg-dark-blue rounded-lg">
+              {regions.map(region => (
+                <li
+                  key={region}
+                  onClick={() => { setSelectedRegion(region); setIsDropdownOpen(false); }}
+                  className="p-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  {region}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+      </div>
+
+      <div className='md:flex md:flex-wrap'>
+        {filteredCountries.map(country => (
+          <Link to={`/country/${country.name.common}`} state={{ country }} key={country.cca3}>
+            <Country
+              flag={country.flags.png}
+              name={country.name.common}
+              population={country.population.toLocaleString()}
+              region={country.region}
+              capital={country.capital && country.capital[0]}
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
