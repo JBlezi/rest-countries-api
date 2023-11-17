@@ -58,28 +58,42 @@ const CountryDetail = () => {
           <p>Back</p>
         </button>
       </Link>
-      <div>
-        <img src={country.flags.png} alt="" className='my-12'/>
-        <h1 className='text-2xl font-bold'>{country.name.common}</h1>
-        <p><span className='font-semibold'>Native Name:</span> {country.nativename}</p>
-        <p><span className='font-semibold'>Population:</span> {country.population}</p>
-        <p><span className='font-semibold'>Region</span> {country.region}</p>
-        <p><span className='font-semibold'>Subregion:</span> {country.subregion}</p>
-        <p><span className='font-semibold'>Capital:</span> {country.capital}</p>
-        <br />
-        <br />
-        <p><span className='font-semibold'>Top Level Domain:</span> {country.tld[0]}</p>
-        <p><span className='font-semibold'>Currency:</span> {Object.values(country.currencies).map(c => c.name).join(', ')}</p>
-        <p><span className='font-semibold'>Languages:</span> {Object.values(country.languages).join(', ')}</p>
-        <br />
-        <br />
-        <h2 className='text-xl font-semibold'>Border Countries</h2>
-        <div className='flex flex-wrap'>
-          {borderCountries.map((name, index) => (
-            <div key={index} className='px-4 py-2 my-2 mr-2 bg-white shadow-md rounded dark:bg-dark-blue'>
-              {name}
+      <div className='md:flex'>
+      <div className="md:w-1/2 md:mr-24 my-12">
+        <img src={country.flags.png} alt={`${country.name.common} Flag`} className='w-full h-auto'/>
+      </div>
+        <div className='md:flex md:w-1/2'>
+          <div className='md:my-16'>
+            <h1 className='text-2xl font-bold mb-8'>{country.name.common}</h1>
+            <div className='md:flex'>
+              <div className='md:mr-24'>
+                <p><span className='font-semibold'>Native Name:</span> {Object.values(country.name.nativeName)[0].official}</p>
+                <p><span className='font-semibold'>Population:</span> {country.population}</p>
+                <p><span className='font-semibold'>Region</span> {country.region}</p>
+                <p><span className='font-semibold'>Subregion:</span> {country.subregion}</p>
+                <p><span className='font-semibold'>Capital:</span> {country.capital}</p>
+                <br />
+                <br />
+              </div>
+              <div>
+                <p><span className='font-semibold'>Top Level Domain:</span> {country.tld[0]}</p>
+                <p><span className='font-semibold'>Currency:</span> {Object.values(country.currencies).map(c => c.name).join(', ')}</p>
+                <p><span className='font-semibold'>Languages:</span> {Object.values(country.languages).join(', ')}</p>
+                <br />
+                <br />
+              </div>
             </div>
-          ))}
+            <div className='md:flex md:items-center md:space-x-8'>
+              <h2 className='text-xl font-semibold'>Border Countries</h2>
+              <div className='flex flex-wrap'>
+                {borderCountries.map((name, index) => (
+                  <div key={index} className='px-4 py-2 my-2 mr-2 bg-white shadow-md rounded dark:bg-dark-blue'>
+                    {name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
