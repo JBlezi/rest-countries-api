@@ -67,18 +67,18 @@ const CountryDetail = () => {
             <h1 className='text-2xl font-bold mb-8'>{country.name.common}</h1>
             <div className='md:flex'>
               <div className='md:mr-24'>
-                <p><span className='font-semibold'>Native Name:</span> {Object.values(country.name.nativeName)[0].official}</p>
-                <p><span className='font-semibold'>Population:</span> {country.population}</p>
-                <p><span className='font-semibold'>Region</span> {country.region}</p>
-                <p><span className='font-semibold'>Subregion:</span> {country.subregion}</p>
+                <p className='mb-2'><span className='font-semibold'>Native Name:</span> {Object.values(country.name.nativeName)[0].official}</p>
+                <p className='mb-2'><span className='font-semibold'>Population:</span> {country.population}</p>
+                <p className='mb-2'><span className='font-semibold'>Region</span> {country.region}</p>
+                <p className='mb-2'><span className='font-semibold'>Subregion:</span> {country.subregion}</p>
                 <p><span className='font-semibold'>Capital:</span> {country.capital}</p>
                 <br />
                 <br />
               </div>
               <div>
-                <p><span className='font-semibold'>Top Level Domain:</span> {country.tld[0]}</p>
-                <p><span className='font-semibold'>Currency:</span> {Object.values(country.currencies).map(c => c.name).join(', ')}</p>
-                <p><span className='font-semibold'>Languages:</span> {Object.values(country.languages).join(', ')}</p>
+                <p className='mb-2'><span className='font-semibold'>Top Level Domain:</span> {country.tld[0]}</p>
+                <p className='mb-2'><span className='font-semibold'>Currency:</span> {Object.values(country.currencies).map(c => c.name).join(', ')}</p>
+                <p className='mb-2'><span className='font-semibold'>Languages:</span> {Object.values(country.languages).join(', ')}</p>
                 <br />
                 <br />
               </div>
