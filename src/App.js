@@ -7,7 +7,7 @@ import CountryDetail from './CountryDetail';
 
 function App() {
   return (
-  <Router>
+  <Router basename="/">
     <div className="App">
       <Navbar />
       <Routes>
